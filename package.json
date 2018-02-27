@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "cross-env NODE_ENV=development nodemon bin/www",
     "seed": "node scripts/seedDB.js",
     "webpack": "./node_modules/.bin/webpack -w",
