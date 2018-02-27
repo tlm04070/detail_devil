@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=production nodemon bin/www",
+    "start": "node server.js",
     "dev": "cross-env NODE_ENV=development nodemon bin/www",
     "seed": "node scripts/seedDB.js",
     "webpack": "./node_modules/.bin/webpack -w",
     "build": "./node_modules/.bin/webpack",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm install && ./node_modules/.bin/webpack"
   },
   "dependencies": {
     "axios": "^0.17.1",
