@@ -78,7 +78,11 @@ mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoConnection = function() {
   mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
+    process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB",
+    err => {
+      console.log(err);
+      console.log("If the above is null, you got a connection");
+    }
   );
 };
 
@@ -95,5 +99,5 @@ app.use(function(err, req, res, next) {
 
 module.exports = {
   app: app,
-  mongoConnection: mongoConnection()
+  mongoConnection: mongoConnection
 };

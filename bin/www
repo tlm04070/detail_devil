@@ -27,7 +27,12 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, mongoConnection);
+server.listen(port, err => {
+  if (err) throw err;
+  mongoConnection();
+  console.log("connected app and db");
+});
+
 server.on("error", onError);
 server.on("listening", onListening);
 
