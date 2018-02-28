@@ -76,9 +76,11 @@ app.use(function(req, res, next) {
 
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
-);
+mongoConnection = function() {
+  mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
+  );
+};
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -91,4 +93,7 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+module.exports = {
+  app: app,
+  mongoConnection: mongoConnection()
+};
