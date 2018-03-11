@@ -9,6 +9,6 @@ export default {
   },
   getBooking: function() {
     //ignore the man behind the curtain
-    window.location.assign("http://localhost:3000/booking");
+    window.location.href = "/booking";
   }
 };
